@@ -1,0 +1,15 @@
+version: '3.2'
+services: 
+  workspace:
+    build:
+      context: './'
+    image: ${COMPOSE_PROJECT_NAME}-workspace
+    container_name: '${COMPOSE_PROJECT_NAME}-workspace'
+    volumes: 
+      - ../:/go/src/git.secok.com/${PROJECT_PATH}:cached
+      - ./bashrc:/root/.bashrc
+    environment: 
+      - CGO_ENABLED=0
+      - ENV=/root/.bashrc
+    working_dir: /go/src/git.secok.com/${PROJECT_PATH}
+    tty: true
