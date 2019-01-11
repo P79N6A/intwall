@@ -68,6 +68,7 @@ echoInfo "1.登录阿里云容器镜像服务";
 echoInfo "2.拉取开发环境";
 read -p "请输入[0]:" num
 num=${num:-0}
+echoInfo $num
 case $num in
     0 )
         alidocker
