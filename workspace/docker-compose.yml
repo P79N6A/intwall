@@ -1,4 +1,10 @@
 version: '3.2'
+networks:
+  dev:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.0.0.0/16
 services: 
   workspace:
     build:
@@ -13,3 +19,5 @@ services:
       - ENV=/root/.bashrc
     working_dir: /go/src/git.secok.com/${PROJECT_PATH}
     tty: true
+    networks: 
+      - dev
