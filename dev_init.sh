@@ -53,8 +53,6 @@ function pullDev () {
     wget $url/Dockerfile -P ${CURR_DIR} -q
     wget $url/Makefile -P ${CURR_DIR} -q
     sed -i "s!\$YOUR_PROJECT_NAME!$project_name!g" Makefile
-    go mod init git.secok.com/$project_path
-    go get ./...
     kill $BG_PID
 }
 
@@ -67,7 +65,7 @@ echoInfo "0.ALL";
 echoInfo "1.登录阿里云容器镜像服务";
 echoInfo "2.拉取开发环境";
 read -p "请输入[0]:" num
-num=`${num:-0}`
+num=${num:-0}
 echoInfo $num
 case $num in
     0 )
