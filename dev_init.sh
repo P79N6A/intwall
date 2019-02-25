@@ -71,15 +71,19 @@ case $num in
     0 )
         alidocker
         pullDev
+        rm dev_init.sh
         exit;;
     1 )
         alidocker
+        rm dev_init.sh
         exit;;
     2 )
         pullDev
+        rm dev_init.sh
         exit;;
     * )
         echoError "错误的选项";
+        rm dev_init.sh
         exit 0;
 esac
 printf -- '\n';
